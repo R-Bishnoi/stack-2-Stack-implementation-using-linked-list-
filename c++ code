@@ -1,0 +1,71 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+
+struct node{
+    int data;
+    struct node* next;
+};
+
+struct node* top=0;
+
+
+void push(int x){
+    struct node* mynode=(struct node*)malloc(sizeof(struct node));
+    mynode->data=x;
+    mynode->next=top;
+    top=mynode;
+}
+
+
+
+
+void peek(){
+    if(top==0)cout<<"stack is empty"<<endl;
+    
+    else{
+        cout<<"peek data is : "<<top->data<<endl;
+    }
+    
+}
+
+
+void pop(){
+    struct node* temp=top;
+    if(temp==0)cout<<"stack is empty"<<endl;
+    else{
+        cout<<"poped value is :"<<top->data<<endl;
+        top=top->next;
+        free(temp);
+    }
+}
+
+
+
+void display(){
+    
+   struct node* temp=top;
+   if(temp==0)cout<<"stack is empty"<<endl;
+   else{
+       while(temp!=0){
+       cout<<temp->data<<"->";
+       temp=temp->next;
+       }
+   }
+    
+}
+
+
+
+int main(){
+    
+    push(3);
+    push(5);
+    push(7);
+    peek();
+    pop();
+    display();
+    
+    return 0;
+    
+}
